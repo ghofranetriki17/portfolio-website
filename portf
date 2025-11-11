@@ -1,0 +1,638 @@
+!DOCTYPE html
+html lang=en
+head
+    meta charset=UTF-8
+    meta name=viewport content=width=device-width, initial-scale=1.0
+    titleGhofrane Triki - Computer Engineering Studenttitle
+    link rel=stylesheet href=httpscdnjs.cloudflare.comajaxlibsfont-awesome6.5.1cssall.min.css
+    style
+         {
+            margin 0;
+            padding 0;
+            box-sizing border-box;
+        }
+
+        root {
+            --primary #e21ab6;
+            --secondary #ff66b2;
+            --dark #1a1a1a;
+            --light #f8f9fa;
+            --gray #6c757d;
+        }
+
+        body {
+            font-family 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height 1.6;
+            color var(--dark);
+            overflow-x hidden;
+        }
+
+         Navigation 
+        nav {
+            position fixed;
+            top 0;
+            width 100%;
+            background rgba(255, 255, 255, 0.98);
+            backdrop-filter blur(10px);
+            padding 1rem 5%;
+            box-shadow 0 2px 10px rgba(0,0,0,0.1);
+            z-index 1000;
+        }
+
+        nav .container {
+            max-width 1200px;
+            margin 0 auto;
+            display flex;
+            justify-content space-between;
+            align-items center;
+        }
+
+        .logo {
+            font-size 1.5rem;
+            font-weight bold;
+            color var(--primary);
+        }
+
+        nav ul {
+            display flex;
+            list-style none;
+            gap 2rem;
+        }
+
+        nav a {
+            text-decoration none;
+            color var(--dark);
+            transition color 0.3s;
+        }
+
+        nav ahover {
+            color var(--primary);
+        }
+
+         Hero Section 
+        .hero {
+            min-height 100vh;
+            display flex;
+            align-items center;
+            justify-content center;
+            background linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color white;
+            text-align center;
+            padding 2rem;
+            position relative;
+            overflow hidden;
+        }
+
+        .herobefore {
+            content '';
+            position absolute;
+            width 200%;
+            height 200%;
+            background radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size 50px 50px;
+            animation float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform translate(0, 0); }
+            100% { transform translate(-50px, -50px); }
+        }
+
+        .hero-content {
+            position relative;
+            z-index 1;
+        }
+
+        .hero h1 {
+            font-size 3.5rem;
+            margin-bottom 1rem;
+            animation fadeInUp 1s;
+        }
+
+        .hero p {
+            font-size 1.3rem;
+            margin-bottom 2rem;
+            animation fadeInUp 1s 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity 0;
+                transform translateY(30px);
+            }
+            to {
+                opacity 1;
+                transform translateY(0);
+            }
+        }
+
+        .social-links {
+            display flex;
+            gap 1rem;
+            justify-content center;
+            margin-top 2rem;
+            animation fadeInUp 1s 0.4s both;
+        }
+
+        .social-links a {
+            width 50px;
+            height 50px;
+            background rgba(255,255,255,0.2);
+            border-radius 50%;
+            display flex;
+            align-items center;
+            justify-content center;
+            color white;
+            transition all 0.3s;
+        }
+
+        .social-links ahover {
+            background white;
+            color var(--primary);
+            transform translateY(-5px);
+        }
+
+         Section Styles 
+        section {
+            padding 5rem 5%;
+            max-width 1200px;
+            margin 0 auto;
+        }
+
+        h2 {
+            font-size 2.5rem;
+            margin-bottom 3rem;
+            text-align center;
+            color var(--primary);
+            position relative;
+        }
+
+        h2after {
+            content '';
+            position absolute;
+            bottom -10px;
+            left 50%;
+            transform translateX(-50%);
+            width 100px;
+            height 4px;
+            background var(--secondary);
+            border-radius 2px;
+        }
+
+         About Section 
+        .about-content {
+            display grid;
+            grid-template-columns 1fr 1fr;
+            gap 3rem;
+            align-items center;
+        }
+
+        .about-text {
+            font-size 1.1rem;
+            color var(--gray);
+        }
+
+        .skills-grid {
+            display grid;
+            grid-template-columns repeat(auto-fit, minmax(150px, 1fr));
+            gap 1rem;
+        }
+
+        .skill-item {
+            padding 1rem;
+            background var(--light);
+            border-radius 10px;
+            text-align center;
+            transition transform 0.3s;
+        }
+
+        .skill-itemhover {
+            transform translateY(-5px);
+            box-shadow 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .skill-item i {
+            font-size 2rem;
+            color var(--primary);
+            margin-bottom 0.5rem;
+        }
+
+         Projects Section 
+        .projects-grid {
+            display grid;
+            grid-template-columns repeat(auto-fit, minmax(300px, 1fr));
+            gap 2rem;
+        }
+
+        .project-card {
+            background white;
+            border-radius 15px;
+            overflow hidden;
+            box-shadow 0 5px 15px rgba(0,0,0,0.1);
+            transition transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-cardhover {
+            transform translateY(-10px);
+            box-shadow 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .project-image {
+            width 100%;
+            height 200px;
+            background linear-gradient(135deg, var(--primary), var(--secondary));
+            display flex;
+            align-items center;
+            justify-content center;
+            color white;
+            font-size 3rem;
+        }
+
+        .project-content {
+            padding 1.5rem;
+        }
+
+        .project-content h3 {
+            margin-bottom 1rem;
+            color var(--dark);
+        }
+
+        .project-tags {
+            display flex;
+            flex-wrap wrap;
+            gap 0.5rem;
+            margin-top 1rem;
+        }
+
+        .tag {
+            padding 0.3rem 0.8rem;
+            background var(--light);
+            border-radius 20px;
+            font-size 0.85rem;
+            color var(--primary);
+        }
+
+         Experience Section 
+        .timeline {
+            position relative;
+            padding-left 50px;
+        }
+
+        .timelinebefore {
+            content '';
+            position absolute;
+            left 20px;
+            top 0;
+            bottom 0;
+            width 2px;
+            background var(--secondary);
+        }
+
+        .timeline-item {
+            position relative;
+            margin-bottom 3rem;
+        }
+
+        .timeline-itembefore {
+            content '';
+            position absolute;
+            left -38px;
+            top 0;
+            width 16px;
+            height 16px;
+            border-radius 50%;
+            background var(--primary);
+            border 4px solid white;
+            box-shadow 0 0 0 4px var(--secondary);
+        }
+
+        .timeline-content {
+            background var(--light);
+            padding 1.5rem;
+            border-radius 10px;
+        }
+
+        .timeline-content h3 {
+            color var(--primary);
+            margin-bottom 0.5rem;
+        }
+
+        .timeline-date {
+            color var(--gray);
+            font-size 0.9rem;
+            margin-bottom 1rem;
+        }
+
+         Contact Section 
+        .contact-info {
+            display grid;
+            grid-template-columns repeat(auto-fit, minmax(250px, 1fr));
+            gap 2rem;
+            margin-bottom 3rem;
+        }
+
+        .contact-item {
+            display flex;
+            align-items center;
+            gap 1rem;
+            padding 1.5rem;
+            background var(--light);
+            border-radius 10px;
+            transition transform 0.3s;
+        }
+
+        .contact-itemhover {
+            transform translateX(10px);
+        }
+
+        .contact-item i {
+            font-size 2rem;
+            color var(--primary);
+        }
+
+         Footer 
+        footer {
+            background var(--dark);
+            color white;
+            text-align center;
+            padding 2rem;
+        }
+
+         Button 
+        .btn {
+            display inline-block;
+            padding 1rem 2rem;
+            background var(--primary);
+            color white;
+            text-decoration none;
+            border-radius 50px;
+            transition all 0.3s;
+            border 2px solid var(--primary);
+        }
+
+        .btnhover {
+            background transparent;
+            color var(--primary);
+            transform translateY(-3px);
+            box-shadow 0 10px 20px rgba(226, 26, 182, 0.3);
+        }
+
+         Responsive 
+        @media (max-width 768px) {
+            nav ul {
+                display none;
+            }
+
+            .hero h1 {
+                font-size 2rem;
+            }
+
+            .about-content {
+                grid-template-columns 1fr;
+            }
+
+            section {
+                padding 3rem 5%;
+            }
+        }
+    style
+head
+body
+    !-- Navigation --
+    nav
+        div class=container
+            div class=logoGTdiv
+            ul
+                lia href=#homeHomeali
+                lia href=#aboutAboutali
+                lia href=#projectsProjectsali
+                lia href=#experienceExperienceali
+                lia href=#contactContactali
+            ul
+        div
+    nav
+
+    !-- Hero Section --
+    section id=home class=hero
+        div class=hero-content
+            h1Ghofrane Trikih1
+            pComputer Engineering Student  Full-Stack Developer  Business Intelligence Enthusiastp
+            a href=#contact class=btnGet In Toucha
+            div class=social-links
+                a href=httpsgithub.comghofranetriki17 target=_blanki class=fab fa-githubia
+                a href=httpslinkedin.cominghofrane-triki-51233b2b0 target=_blanki class=fab fa-linkedinia
+                a href=mailtoghofrane.triki.17@gmail.comi class=fas fa-envelopeia
+            div
+        div
+    section
+
+    !-- About Section --
+    section id=about
+        h2About Meh2
+        div class=about-content
+            div class=about-text
+                pHello! I'm Ghofrane Triki, a passionate Computer Engineering student at IIT Sfax, specializing in Software Engineering and Business Intelligence with a focus on Security.p
+                p style=margin-top 1rem;I have experience in full-stack web development, mobile applications, and business intelligence. I love creating innovative solutions and learning new technologies.p
+                p style=margin-top 1rem;Currently seeking opportunities to contribute to exciting projects and develop my technical skills further.p
+            div
+            div class=skills-grid
+                div class=skill-item
+                    i class=fab fa-reacti
+                    pReactp
+                div
+                div class=skill-item
+                    i class=fab fa-angulari
+                    pAngularp
+                div
+                div class=skill-item
+                    i class=fab fa-laraveli
+                    pLaravelp
+                div
+                div class=skill-item
+                    i class=fab fa-pythoni
+                    pPythonp
+                div
+                div class=skill-item
+                    i class=fas fa-databasei
+                    pMySQLp
+                div
+                div class=skill-item
+                    i class=fas fa-chart-linei
+                    pPower BIp
+                div
+            div
+        div
+    section
+
+    !-- Projects Section --
+    section id=projects
+        h2Featured Projectsh2
+        div class=projects-grid
+            div class=project-card
+                div class=project-image
+                    i class=fas fa-mobile-alti
+                div
+                div class=project-content
+                    h3Gym Management Apph3
+                    pFull-stack mobile application for gym management with React Native frontend and Laravel backend.p
+                    div class=project-tags
+                        span class=tagReact Nativespan
+                        span class=tagLaravelspan
+                        span class=tagMySQLspan
+                    div
+                div
+            div
+
+            div class=project-card
+                div class=project-image
+                    i class=fas fa-shopping-carti
+                div
+                div class=project-content
+                    h3FimoChic E-commerceh3
+                    pComplete e-commerce website with product management, sales tracking, and interactive features.p
+                    div class=project-tags
+                        span class=tagLaravelspan
+                        span class=tagJavaScriptspan
+                        span class=tagMySQLspan
+                    div
+                div
+            div
+
+            div class=project-card
+                div class=project-image
+                    i class=fas fa-chart-bari
+                div
+                div class=project-content
+                    h3Business Intelligence Systemh3
+                    pDecision support system with ETL processes, OLAP cubes, and interactive dashboards.p
+                    div class=project-tags
+                        span class=tagSQL Serverspan
+                        span class=tagSSISspan
+                        span class=tagPower BIspan
+                    div
+                div
+            div
+
+            div class=project-card
+                div class=project-image
+                    i class=fas fa-graduation-capi
+                div
+                div class=project-content
+                    h3NexiQuest Platformh3
+                    pOnline education platform with interactive learning features and content management.p
+                    div class=project-tags
+                        span class=tagLaravelspan
+                        span class=tagBladespan
+                        span class=tagMySQLspan
+                    div
+                div
+            div
+
+            div class=project-card
+                div class=project-image
+                    i class=fas fa-code-branchi
+                div
+                div class=project-content
+                    h3Version Control Systemh3
+                    pGit-like version control software with SHA256 hashing and tree structure management.p
+                    div class=project-tags
+                        span class=tagCspan
+                        span class=tagBashspan
+                        span class=tagLinuxspan
+                    div
+                div
+            div
+
+            div class=project-card
+                div class=project-image
+                    i class=fas fa-braini
+                div
+                div class=project-content
+                    h3Insurance Claims Predictionh3
+                    pMachine learning project for predicting insurance claims using data mining techniques.p
+                    div class=project-tags
+                        span class=tagPythonspan
+                        span class=tagMLspan
+                        span class=tagPandasspan
+                    div
+                div
+            div
+        div
+    section
+
+    !-- Experience Section --
+    section id=experience
+        h2Experienceh2
+        div class=timeline
+            div class=timeline-item
+                div class=timeline-content
+                    h3Mobile Developer Internh3
+                    div class=timeline-date2024-2025  Exadev Companydiv
+                    pDeveloped a complete mobile application for gym management using React Native and Laravel with MySQL database.p
+                div
+            div
+
+            div class=timeline-item
+                div class=timeline-content
+                    h3End of Year Project (PFA) Internh3
+                    div class=timeline-date2024-2025  Eventizerdiv
+                    pDeveloped the NexiQuest online education platform with interactive learning features and content management.p
+                div
+            div
+
+            div class=timeline-item
+                div class=timeline-content
+                    h3Web Developer Internh3
+                    div class=timeline-date2023-2024  Exadev Companydiv
+                    pBuilt FimoChic e-commerce website with complete product and sales management, implementing advanced features with JavaScript and Meta Spark Studio.p
+                div
+            div
+
+            div class=timeline-item
+                div class=timeline-content
+                    h3Computer Engineering Studenth3
+                    div class=timeline-date2023-Present  IIT Sfaxdiv
+                    pSpecializing in Software Engineering and Business Intelligence with a focus on Information Systems Security.p
+                div
+            div
+        div
+    section
+
+    !-- Contact Section --
+    section id=contact
+        h2Get In Touchh2
+        div class=contact-info
+            div class=contact-item
+                i class=fas fa-envelopei
+                div
+                    h4Emailh4
+                    pghofrane.triki.17@gmail.comp
+                div
+            div
+            div class=contact-item
+                i class=fas fa-phonei
+                div
+                    h4Phoneh4
+                    p+216 25 141 113p
+                div
+            div
+            div class=contact-item
+                i class=fas fa-map-marker-alti
+                div
+                    h4Locationh4
+                    pSfax, Tunisiap
+                div
+            div
+        div
+        div style=text-align center;
+            a href=mailtoghofrane.triki.17@gmail.com class=btnSend Messagea
+        div
+    section
+
+    !-- Footer --
+    footer
+        p&copy; 2024 Ghofrane Triki  Computer Engineering Studentp
+        p style=margin-top 0.5rem; font-size 0.9rem;Built with passion and creativityp
+    footer
+body
+html
